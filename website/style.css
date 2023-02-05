@@ -1,6 +1,5 @@
 body{
     background: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     height:100vh;
     width: 100vw;
     display: flex;
@@ -42,9 +41,10 @@ body{
     align-items: center;
     justify-content: space-around;
     background: rgba(0, 0, 0, 0.939);
-    /* width: clamp(50%, 60%, 85%); */
     min-width: 40%;
     min-height: 20%;
+    max-width: 100%;
+    max-height: 50%;
     padding: 3px;
     border-style: solid;
     border-radius: 50px;
@@ -52,29 +52,6 @@ body{
     border-color: rgba(0, 0, 34, 0.5);
     font-size: clamp(0.9rem, 1.5vw, 1.5rem);
     color: yellow;
-}
-
-button {
-    font-size: clamp(0.9rem, 1.5vw, 1.5rem);;
-    padding: 5px 10px;
-    background-color: #5cb85c;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-  }
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
 }
 
 #content{
@@ -94,7 +71,7 @@ button {
     font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
-.chng_ctry {
+.change__country__container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -113,8 +90,8 @@ button {
 }
 
 #change__country__btn{
-    display: block;
     font-size: smaller;
+    display: block;
 }
 
 .country__container {
@@ -126,12 +103,59 @@ button {
 
 #country__name {
     font-size: clamp(1rem, 1.5vw, 1.5rem);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
+.myInput {
+    width: 100%;
+    height: 100%;
+    font-size: clamp(0.7rem, 1.1vw, 1.2rem);
+    color: #ffffff;
+}
+
+#weather__icon {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#generate{
+    width: 40%;
+    height: 60%;
+}
+
+.feel.holder {
+    width: 60%;
+}
+
+#date {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#temp {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Basic Styling To Override Default For Basic HTML Elements */
+button {
+    font-size: clamp(0.9rem, 1.5vw, 1.5rem);;
+    padding: 5px 10px;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
 label{
-    /* display:block;
-    font-size: 27px; */
     font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
@@ -146,40 +170,7 @@ input{
     outline: none;
     transition: all 0.3s ease-in-out;
 }
-.myInput {
-    width: 100%;
-    height: 100%;
-    font-size: clamp(0.7rem, 1.1vw, 1.2rem);
-    color: #ffffff;
-}
 
-#weather__icon {
-    display: none;
-}
-
-#generate{
-    width: 40%;
-    height: 60%;
-}
-
-#change__country{
-    /* width: 400px;
-    height: 50;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 18px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444; */
-}
-
-h1{
-    
-}
-
-.feel.holder {
-    width: 60%;
-}
 textarea{
     resize: none;
     background: #000000da;
@@ -191,33 +182,17 @@ textarea{
     width: calc(100% + 10px);
     outline: none;
     transition: all 0.3s ease-in-out;
-    /* background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif; */
 }
-/* Reset style for HTML element on active to have no border*/
+
+/* Reset style for HTML element on active*/
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-     background-color: #010051e0;
+    background-color: #010051e0;
+    outline: none;
 }
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    /* color: #f0d43a; 
-    font-family: 'Oswald', sans-serif; */
 
-} 
-  
-/* :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    /* color: #f0d43a; 
-    font-family: 'Oswald', sans-serif; 
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge 
-    /* color: #f0d43a; 
-    font-family: 'Oswald', sans-serif; 
-
-}  */
+button:hover {
+    background-color: #002f14e0;
+}
