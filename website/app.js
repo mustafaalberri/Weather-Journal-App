@@ -1,3 +1,5 @@
+// document.cookie = "cookie-name=cookie-value; SameSite=None; Secure; expires=<expiration-date>; path=<cookie-path>";
+
 /* Global Variables */
 const apiKey = '&appid=e627aebbf71d357d969cab419077a6c8&units=imperial';
 const directURL = 'http://api.openweathermap.org/geo/1.0/zip?zip=';
@@ -5,12 +7,15 @@ const weatherURL = 'https://api.openweathermap.org/data/2.5/weather?lat=';
 let latitude, longitude;
 let countryCode = 'US';
 
+document.cookie = 'cookie2=value2; SameSite=None; Secure';
+
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
+let newDate = `${d.getMonth()+1}.${d.getDate()}.${d.getFullYear()}`;
 
 //
-const updateInterface = async () => {
+const updateInterface = async (evt) => {
+  evt.preventDefault();
   // Get the values entered by the user for zipcode and feelings
   const feels = document.getElementById('feelings').value;
   const zip = document.getElementById('zip').value;
@@ -21,13 +26,16 @@ const updateInterface = async () => {
   longitude = data.lon;
   // Get the current wearther conditions for the retrieved coordinates 
   data = await retrieveData(weatherURL + latitude + '&lon=' + longitude + apiKey);
+  const icon = data.weather[0].icon;
+  const description = data.weather[0].description;
+  console.log(data);
   // Post the retrieved data to the server by passing the appropriate URL, and an object containing
   // the temperature, date, and user response for feelings
   data = await postData('/allData', {temp: data.main.temp, date: newDate, userResponse: feels});
   // Get the data from the server by passing the appropriate URL
   data = await retrieveData('/getWeatherData');
   // Update HTML elements with the new data retrieved from the server
-  updateHTML(data);
+  updateHTML(data, icon, description);
   }catch(error){
     console.log('error', error);
     alert('Invalid ZipCode'); // Alert the user
@@ -36,7 +44,8 @@ const updateInterface = async () => {
 
 // Alternative method with the same functionality as the previous method,
 // but, it uses '.then' instead of 'await'.
-/*const updateInterfaceAlt = () => { 
+/*const updateInterfaceAlt = (evt) => { 
+  evt.preventDefault();
   const feels = document.getElementById('feelings').value;
   const zip = document.getElementById('zip').value;
   //if (zip === null){throw new Error('zip code invalid');}
@@ -95,11 +104,15 @@ const retrieveData = async(url) =>{
 }
 
 //
-const updateHTML = (data) => {
+const updateHTML = (data, icon, description) => {
   // Write updated data to DOM elements
   document.getElementById('temp').innerHTML = Math.round(data.temp) + ' degrees';
   document.getElementById('content').innerHTML = data.userResponse;
   document.getElementById("date").innerHTML =data.date;
+  const weatherIcon = document.getElementById('weather__icon');
+  weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  weatherIcon.alt = description;
+  weatherIcon.style.display = 'block';
 }
 
 //
