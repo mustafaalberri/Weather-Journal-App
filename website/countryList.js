@@ -1,3 +1,5 @@
+// This is a list of objects, each object contains a country 
+// name and the corresponding code according to ISO-3166
 const list_countryCodes = [
     {code: 'AF', name: 'Afghanistan'},
     {code: 'AX', name: 'Åland Islands'},
@@ -251,26 +253,33 @@ const list_countryCodes = [
     {code: 'ZW', name: 'Zimbabwe'}
   ];
 
+// Callback function for the event when the 'Change Country' button is clicked.
 const changeCountryBtn = evt => {
   evt.target.style.display = 'none';
   document.getElementById('change__btn').style.display = 'block';
   document.getElementById('new__country').style.display = 'block';
 }
 
+// Callback function for the event when the 'Change' button is clicked, after entering the new country.
 const changeCountry = evt => {
   const country = document.getElementById('new__country').value;
-  let flag = false;
-  for (const c of list_countryCodes){
-    const splitted = c.name.split(' ');
-    for (const s of splitted){
-      if(s.toLowerCase() === country.toLowerCase()){
-        countryCode = c.code;
-        document.getElementById('country__name').innerHTML = `Country: ${c.name}`;
-        flag = true;
-        break;
+  let flag = false; // Flag variable for indicating the new country input by user is valid.
+  if(country !== 'of' && country !== 'the' && country !== 'and'){
+    for (const c of list_countryCodes){
+      const splitted = c.name.split(' ');
+      for (const s of splitted){
+        if(s.toLowerCase() === country.toLowerCase()){
+          const countryName = document.getElementById('country__name');
+          countryCode = c.code; // Update variable for country code which is used in geocoding URL
+          countryName.style.opacity = 0;
+          setTimeout(() => {countryName.innerHTML = `Country: ${c.name}`;}, 500); // delay to account for transition
+          setTimeout(() => {countryName.style.opacity = 1;}, 500);
+          flag = true; // Switch flag to 'true' in case the new country is found.
+          break;
+        }
       }
+      if(flag === true) {break;}
     }
-    if(flag === true) {break;}
   }
   if(flag === false) {alert('Invalid Country');}
   evt.target.style.display = 'none';
@@ -278,5 +287,6 @@ const changeCountry = evt => {
   document.getElementById('change__country__btn').style.display = 'block';
 }
 
+// Add event listeners for buttons responsible for changing the country
 document.getElementById('change__country__btn').addEventListener('click', changeCountryBtn);
 document.getElementById('change__btn').addEventListener('click', changeCountry);
