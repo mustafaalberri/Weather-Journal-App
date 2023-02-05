@@ -235,7 +235,7 @@ const list_countryCodes = [
     {code: 'AE', name: 'United Arab Emirates - UAE'},
     {code: 'GB', name: 'United Kingdom of Great Britain and Northern Ireland'},
     {code: 'GB', name: 'England'},
-    {code: 'US', name: 'United States of America'},
+    {code: 'US', name: 'United States of America - USA'},
     {code: 'UM', name: 'United States Minor Outlying Islands'},
     {code: 'UY', name: 'Uruguay'},
     {code: 'UZ', name: 'Uzbekistan'},
@@ -251,7 +251,13 @@ const list_countryCodes = [
     {code: 'ZW', name: 'Zimbabwe'}
   ];
 
-const changeCountry = () => {
+const changeCountryBtn = evt => {
+  evt.target.style.display = 'none';
+  document.getElementById('change__btn').style.display = 'block';
+  document.getElementById('new__country').style.display = 'block';
+}
+
+const changeCountry = evt => {
   const country = document.getElementById('new__country').value;
   let flag = false;
   for (const c of list_countryCodes){
@@ -267,6 +273,10 @@ const changeCountry = () => {
     if(flag === true) {break;}
   }
   if(flag === false) {alert('Invalid Country');}
+  evt.target.style.display = 'none';
+  document.getElementById('new__country').style.display = 'none';
+  document.getElementById('change__country__btn').style.display = 'block';
 }
 
-document.getElementById('change__country__btn').addEventListener('click', changeCountry);
+document.getElementById('change__country__btn').addEventListener('click', changeCountryBtn);
+document.getElementById('change__btn').addEventListener('click', changeCountry);
