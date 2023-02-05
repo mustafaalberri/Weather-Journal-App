@@ -1,5 +1,14 @@
 # Weather-Journal App Project
 
+## Table of Contents
+
+* [Overview](#overview)
+* [Instructions](#instructions)
+* [Support](#support)
+* [Installation](#installation)
+* [Authors and Acknowledgment](#authors-and-acknowledgment)
+* [Extras](#extras)
+
 ## Overview
 This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
 
