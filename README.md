@@ -35,7 +35,7 @@ To run the app, follow these steps:
 The technologies used in the creation of the app are: Javascript ES6, HTML, CSS, Node.js.
 
 ## Authors and Acknowledgment
-The HTML and CSS base files were provided by [Udacity.com] (link: https://github.com/udacity/fend/tree/refresh-2019). 
+The HTML and CSS base files were provided by [Udacity](udacity.com) (link: https://github.com/udacity/fend/tree/refresh-2019). 
 Creation of the Client and Server Javascript program, and editing of the HTML and CSS files to create the app was done by Mustafa Alberri.
 
 ## References
