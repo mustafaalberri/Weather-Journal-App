@@ -23,7 +23,7 @@ In order to run this project, you need to have the following installed in your c
 To run the app, follow these steps:
 1. Open a command line window, navigate to the project folder, then navigate inside the 'website' folder.
 2. When inside the 'website' folder, from the command line, run the following line: `'http-server -p3000'` (make sure you have `http-server` package installed).
-3. Open a new tab (or window) of the command line, the run the server javascript file using the line: `'node server.js'`.
+3. Open a new tab (or window) of the command line, the run the server javascript file using the line: `'node server.js'`. (make sure you already have `nodeJS` installed).
 4. Open a web browser, and go to: [localhost:3000](#localhost:3000).
 5. The app should be running, and you should be able to get the latest weather data.
 
