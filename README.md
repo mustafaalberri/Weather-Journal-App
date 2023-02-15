@@ -28,14 +28,14 @@ To run the app, follow these steps:
 1. Open a command line window, navigate to the project folder, then navigate inside the 'website' folder.
 2. When inside the 'website' folder, from the command line, run the following line: `'http-server -p3000'` (make sure you have `http-server` package installed).
 3. Open a new tab (or window) of the command line, then run the server file using the line: `'node server.js'`. (make sure you already have `nodeJS` installed).
-4. Open a web browser, and go to: [localhost:3000](localhost:3000).
+4. Open a web browser, and go to: `localhost:3000`.
 5. The app should be running, and you should be able to get the latest weather data.
 
 ## Technologies Used
 The technologies used in the creation of the app are: Javascript ES6, HTML, CSS, Node.js.
 
 ## Authors and Acknowledgment
-The HTML and CSS base files were provided by [Udacity](udacity.com) (link: https://github.com/udacity/fend/tree/refresh-2019). 
+The HTML and CSS base files were provided by [Udacity.com] (link: https://github.com/udacity/fend/tree/refresh-2019). 
 Creation of the Client and Server Javascript program, and editing of the HTML and CSS files to create the app was done by Mustafa Alberri.
 
 ## References
