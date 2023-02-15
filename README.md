@@ -17,7 +17,11 @@ The purpose of this project is to create an app that takes in user input (zipcod
 Please contact Mustafa Alberri: (E-mail) *mustafaalberri@gmail.com*, or (Mobile Number) **+201027660306** for support.
 
 ## Installation
-In order to run this project, you need to have the following installed in your computer: `Node.js`,  `http-server` as a package, and a web browser.
+In order to run this project, you need to have the following installed in your computer: 
+- `Node.js`: [Installation](#https://nodejs.org/en/download/)
+- `Npm` package manager is installed automatically with `node.js`.
+- Using `npm` package manager install `http-server` as a package dependency by running the following line in your command line: `npm install http-server`. 
+- Finally, you need to have a web browser installed.
 
 ## How to Run The App
 To run the app, follow these steps:
