@@ -19,7 +19,7 @@ Please contact Mustafa Alberri: (E-mail) *mustafaalberri@gmail.com*, or (Mobile 
 ## Installation
 In order to run this project, you need to have the following installed in your computer: 
 - `Node.js`: [Installation](#https://nodejs.org/en/download/)
-- `Npm` package manager is installed automatically with `node.js`.
+- `npm` package manager is installed automatically with `node.js`.
 - Using `npm` package manager install `http-server` as a package dependency by running the following line in your command line: `npm install http-server`. 
 - Finally, you need to have a web browser installed.
 
